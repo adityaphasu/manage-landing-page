@@ -1,0 +1,52 @@
+@use "./variables" as *;
+
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin container-before($width, $size, $top) {
+  &::before {
+    content: "";
+    width: $width;
+    height: 28.125rem;
+    background: url("/src/assets/bg-tablet-pattern.svg") no-repeat;
+    background-size: $size;
+    position: absolute;
+    top: $top;
+    right: 0;
+    z-index: -1;
+  }
+}
+
+@mixin resize-bg($width, $bgsize, $top) {
+  &:before {
+    width: $width;
+    height: 60rem;
+    background-size: $bgsize;
+    top: $top;
+  }
+}
+
+@mixin border-radius {
+  border-radius: 10rem;
+}
+
+@mixin red-theme-btn {
+  background-color: $bright-red;
+  color: $very-light-gray;
+}
+
+@mixin white-theme-btn {
+  background-color: $very-light-gray;
+  color: $bright-red;
+}
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

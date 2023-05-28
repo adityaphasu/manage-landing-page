@@ -1,0 +1,66 @@
+@use "../../scss/abstracts" as *;
+
+.testimonial-section {
+  padding: 0.2rem 1rem 0.5rem;
+
+  @include mq(large) {
+    padding: 6.5rem 0 9.1rem;
+    text-align: center;
+
+    &__heading {
+      font-size: 2.35rem;
+    }
+  }
+
+  &__testimony {
+    font-size: 0.95rem;
+    padding: 0rem 1rem 5.6rem;
+    margin-top: 6rem;
+    background-color: lighten($dark-grayish-blue, 35%);
+    cursor: grab;
+
+    @include mq(large) {
+      padding: 1rem 3.59rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+  }
+
+  &__avatar {
+    margin-inline: auto;
+    max-width: 4.5rem;
+    transform: translateY(-2.5rem);
+
+    @include mq(large) {
+      transform: translateY(-3rem);
+    }
+  }
+
+  &__name {
+    font-size: $fs-2;
+    margin-top: -0.625rem;
+    padding-bottom: 1rem;
+
+    @include mq(large) {
+      margin-top: -1.1rem;
+    }
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: $very-light-gray;
+  border: 1px solid $bright-red;
+  opacity: 1;
+
+  @include mq(large) {
+    display: none;
+  }
+
+  &-active {
+    background-color: $bright-red;
+    border: none;
+  }
+}

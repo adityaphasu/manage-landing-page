@@ -1,0 +1,31 @@
+@use "../../scss/abstracts" as *;
+
+.cta-section {
+  background: $bright-red url("/src/assets/bg-simplify-section-mobile.svg") no-repeat;
+  padding: 6rem 2rem 4.7rem;
+
+  @include mq(large) {
+    background-image: url("/src/assets/bg-simplify-section-desktop.svg");
+    background-position: 16rem 100%;
+    @include flex(space-between, center);
+    padding: 3.6rem 5rem;
+    gap: 5rem;
+  }
+
+  @include mq(extra-large) {
+    padding: 3.6rem 9rem;
+  }
+
+  &__heading {
+    font-size: 2.2rem;
+    font-weight: $fw-700;
+    color: $very-light-gray;
+
+    @include mq(large) {
+      font-size: 2.35rem;
+      padding: 1rem 0 0 1.2rem;
+      line-height: 1.2;
+      max-width: 30rem;
+    }
+  }
+}

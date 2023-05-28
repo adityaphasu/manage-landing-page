@@ -1,0 +1,34 @@
+@use "../../scss/abstracts" as *;
+
+.btn {
+  font-size: 0.8rem;
+  font-weight: $fw-500;
+  border: none;
+  box-shadow: 0 0.4rem 0.5rem 0 lighten($bright-red, 20%);
+  margin-block: 2rem;
+  padding: 0.8rem 2rem;
+  display: inline-block;
+  @include red-theme-btn;
+  @include border-radius;
+
+  &--hidden {
+    display: none;
+
+    @include mq(large) {
+      display: inline-block;
+    }
+  }
+
+  &--white {
+    margin-block: 1rem;
+    @include white-theme-btn;
+  }
+
+  &--noshadow {
+    box-shadow: none;
+
+    @include mq(large) {
+      padding: 0.8rem 1.5rem;
+    }
+  }
+}

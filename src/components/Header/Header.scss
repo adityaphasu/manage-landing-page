@@ -1,0 +1,135 @@
+@use "../../scss/abstracts" as *;
+
+.header {
+  padding: 2.7rem 1.5rem;
+  position: relative;
+  z-index: 4;
+
+  @include mq(large) {
+    padding: 1.7rem 0;
+  }
+
+  @include mq(extra-large) {
+    padding: 1.7rem 2.7rem;
+  }
+
+  &__navbar {
+    @include flex(space-between, center);
+    // @include container-before(85%, 28.5rem, -7.1rem);
+
+    @include mq(large) {
+      justify-content: space-around;
+    }
+  }
+
+  &__logo {
+    max-width: 7rem;
+
+    @include mq(large) {
+      max-width: 15rem;
+      padding-left: 1.2rem;
+    }
+  }
+
+  &__hamburger {
+    border: none;
+    background-color: transparent;
+
+    @include mq(large) {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -0.75rem;
+      left: -0.6rem;
+      width: 2.8125rem;
+      height: 2.8125rem;
+      border: 1.5px solid $dark-blue;
+      border-radius: 100%;
+      opacity: 0;
+    }
+
+    &--active {
+      transform: rotate(45deg);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .header__span {
+        &:nth-child(2) {
+          width: 0;
+        }
+
+        &:nth-child(1) {
+          transform: translateY(0.55rem);
+        }
+        &:nth-child(3) {
+          transform: translateY(-0.45rem) rotate(90deg);
+        }
+      }
+    }
+  }
+
+  &__span {
+    display: block;
+    width: 1.6875rem;
+    height: 0.25rem;
+    background-color: $dark-blue;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &__list {
+    width: calc(100vw - 3.1rem);
+    background-color: $very-light-gray;
+    border-radius: 0.2rem;
+    padding: 2rem 1rem 1.5rem;
+    position: absolute;
+    left: 1.5rem;
+    top: -30rem;
+    z-index: 2;
+
+    @include mq(large) {
+      width: auto;
+      position: static;
+      padding: 0;
+      font-size: $fs-2;
+      @include flex(space-around, center);
+    }
+
+    &--open {
+      top: 6.5rem;
+    }
+  }
+
+  &__item {
+    padding-block: 0.7rem;
+  }
+
+  &__link {
+    color: $dark-blue;
+    font-weight: $fw-500;
+
+    @include mq(large) {
+      margin-inline: 0.7rem;
+    }
+  }
+}
+
+.overlay {
+  background: $gradient;
+  display: none;
+  position: fixed;
+  inset: 2rem 0 0 0;
+  z-index: 4;
+
+  &--visible {
+    display: block;
+  }
+}

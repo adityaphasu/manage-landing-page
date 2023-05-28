@@ -1,0 +1,106 @@
+@use "../../scss/abstracts" as *;
+
+.about-section {
+  font-size: $fs-2;
+  padding: 4rem 0;
+  position: relative;
+
+  @include mq(medium) {
+    padding: 4rem 7rem;
+  }
+
+  @include mq(large) {
+    font-size: 1rem;
+    padding: 3rem 4.5rem;
+    @include flex(space-between, flex-start);
+    gap: 5rem;
+  }
+
+  @include mq(extra-large) {
+    padding: 3rem 8.5rem;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  &__container {
+    padding: 0 1.5rem 0.5rem;
+    @include container-before(36%, 19.5rem, -15.6rem);
+
+    @include mq(medium) {
+      @include resize-bg(25%, 28.5rem, -22.6rem);
+    }
+
+    @include mq(large) {
+      &:before {
+        width: 100%;
+        background-size: 50.2rem;
+        top: 20.9rem;
+        right: 30.8rem;
+      }
+
+      p {
+        padding-right: 6rem;
+      }
+    }
+  }
+
+  &__heading {
+    letter-spacing: -0.05rem;
+    padding-bottom: 0.9rem;
+
+    @include mq(large) {
+      font-size: 2.45rem;
+      line-height: 1.25;
+    }
+  }
+
+  &__feature {
+    text-align: left;
+    padding: 3rem 0 0;
+    letter-spacing: -0.1px;
+
+    @include mq(large) {
+      padding: 3.2rem 0 0;
+
+      &:nth-of-type(1) {
+        padding: 0 0 0;
+      }
+    }
+
+    p {
+      padding-inline: 1rem 0.5rem;
+
+      @include mq(large) {
+        padding-inline: 8.2rem 0.5rem;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  &__heading2 {
+    font-size: 0.93rem;
+    background-color: $very-pale-red;
+    margin: 0 0 1rem 1rem;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    border-radius: 10rem 0 0 10rem;
+
+    @include mq(large) {
+      font-size: $font-size;
+      background-color: transparent;
+      padding: 0.3rem 0.5rem 0.5rem 1rem;
+    }
+
+    span {
+      padding: 0.6rem 1.5rem;
+      margin-right: 1rem;
+      @include red-theme-btn;
+      @include border-radius;
+
+      @include mq(large) {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

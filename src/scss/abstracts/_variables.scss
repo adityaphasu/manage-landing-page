@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
+
+// COLORS
+
+//  Primary
+
+$bright-red: hsl(12, 88%, 59%);
+$dark-blue: hsl(228, 39%, 23%);
+
+// Neutral
+
+$dark-grayish-blue: hsl(227, 12%, 61%);
+$very-dark-blue: hsl(233, 12%, 13%);
+$very-pale-red: hsl(13, 100%, 96%);
+$very-light-gray: hsl(0, 0%, 98%);
+$gradient: linear-gradient(hsla(0, 0%, 0%, 0), hsla(0, 0%, 3%, 0.628));
+
+// FONT
+
+$font-family: "Be Vietnam Pro", sans-serif;
+$font-size: 1rem;
+$fs-2: 0.9rem;
+$fw-500: 500;
+$fw-700: 700;
+
+// BREAKPOINTS
+
+$breakpoints: (
+  "small": 29rem,
+  "medium": 45rem,
+  "large": 64rem,
+  "extra-large": 90rem,
+);
