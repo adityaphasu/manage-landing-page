@@ -29,6 +29,10 @@
   }
 }
 
+@mixin ease-in-out-transition($property) {
+  transition: $property 0.7s ease-in-out;
+}
+
 @mixin border-radius {
   border-radius: 10rem;
 }
