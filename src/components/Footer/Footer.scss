@@ -21,8 +21,11 @@
   &__form {
     @include flex(space-evenly, center);
 
-    @include mq(large) {
+    @include mq(medium) {
       justify-content: center;
+    }
+
+    @include mq(large) {
       grid-column: 3;
       margin: 0.1rem 3rem 0 0;
     }
@@ -31,7 +34,7 @@
       padding: 0.6rem 0.5rem;
       @include border-radius;
 
-      @include mq(large) {
+      @include mq(medium) {
         margin-right: 1rem;
       }
     }
@@ -54,9 +57,14 @@
 
   &__item {
     padding: 0.4rem 0 0.4rem 3rem;
+    @include ease-in-out-transition(color);
 
     @include mq(large) {
       padding: 0.4rem 0;
+    }
+
+    &:hover {
+      color: $bright-red;
     }
   }
 
@@ -73,6 +81,10 @@
 
       @include mq(large) {
         margin-inline: 0.4rem;
+      }
+
+      &:hover {
+        filter: invert(57%) sepia(76%) saturate(4287%) hue-rotate(339deg) brightness(99%) contrast(91%);
       }
 
       img {

@@ -8,8 +8,13 @@
   margin-block: 2rem;
   padding: 0.8rem 2rem;
   display: inline-block;
+  @include ease-in-out-transition(opacity);
   @include red-theme-btn;
   @include border-radius;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   &--hidden {
     display: none;

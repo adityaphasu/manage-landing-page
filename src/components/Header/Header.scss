@@ -15,7 +15,6 @@
 
   &__navbar {
     @include flex(space-between, center);
-    // @include container-before(85%, 28.5rem, -7.1rem);
 
     @include mq(large) {
       justify-content: space-around;
@@ -34,29 +33,14 @@
   &__hamburger {
     border: none;
     background-color: transparent;
+    @include ease-in-out-transition(transform);
 
     @include mq(large) {
       display: none;
     }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: -0.75rem;
-      left: -0.6rem;
-      width: 2.8125rem;
-      height: 2.8125rem;
-      border: 1.5px solid $dark-blue;
-      border-radius: 100%;
-      opacity: 0;
-    }
-
     &--active {
       transform: rotate(45deg);
-
-      &::before {
-        opacity: 1;
-      }
 
       .header__span {
         &:nth-child(2) {
@@ -78,6 +62,7 @@
     width: 1.6875rem;
     height: 0.25rem;
     background-color: $dark-blue;
+    @include ease-in-out-transition(all);
 
     &:nth-child(1),
     &:nth-child(2) {
@@ -94,6 +79,7 @@
     left: 1.5rem;
     top: -30rem;
     z-index: 2;
+    @include ease-in-out-transition(top);
 
     @include mq(large) {
       width: auto;
@@ -115,6 +101,38 @@
   &__link {
     color: $dark-blue;
     font-weight: $fw-500;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3.5px;
+      background-color: $bright-red;
+      transform: scaleX(0);
+      @include ease-in-out-transition(transform);
+    }
+
+    &:before {
+      top: -0.6rem;
+      left: 0;
+      transform-origin: top left;
+    }
+
+    &:after {
+      bottom: -0.6rem;
+      right: 0;
+      height: 3.2px;
+      transform-origin: bottom right;
+    }
+
+    &:hover {
+      &:before,
+      &::after {
+        transform: scaleX(1);
+      }
+    }
 
     @include mq(large) {
       margin-inline: 0.7rem;
