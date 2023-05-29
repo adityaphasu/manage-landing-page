@@ -13,11 +13,11 @@
     font-size: 1rem;
     padding: 3rem 4.5rem;
     @include flex(space-between, flex-start);
-    gap: 5rem;
-  }
 
-  @include mq(extra-large) {
-    padding: 3rem 8.5rem;
+    @include mq(extra-large) {
+      padding: 3rem 8.5rem;
+      gap: 5rem;
+    }
   }
 
   p {
@@ -39,7 +39,9 @@
         top: 20.9rem;
         right: 30.8rem;
       }
+    }
 
+    @include mq(extra-large) {
       p {
         padding-right: 6rem;
       }
