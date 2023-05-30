@@ -1,18 +1,13 @@
 import React from "react";
 import { Logo2 } from "../../assets/images";
 import { Facebook, Instagram, Twitter, Pinterest, Youtube } from "../../assets/icons/icons";
-import Button from "../Button/Button";
+import Form from "../Form/Form";
 import "./Footer.scss";
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <form action="#" className="footer__form">
-        <label htmlFor="email">
-          <input type="email" name="email" id="email" placeholder="Updates in your inbox…" />
-        </label>
-        <Button className="btn btn--noshadow" text="GO" />
-      </form>
+      <Form />
       <nav aria-label="Second Menu" className="footer__navbar">
         <ul className="footer__list">
           <li className="footer__item">
