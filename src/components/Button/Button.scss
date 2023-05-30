@@ -28,12 +28,4 @@
     margin-block: 1rem;
     @include white-theme-btn;
   }
-
-  &--noshadow {
-    box-shadow: none;
-
-    @include mq(large) {
-      padding: 0.8rem 1.5rem;
-    }
-  }
 }
