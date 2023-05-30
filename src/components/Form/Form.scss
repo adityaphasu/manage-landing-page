@@ -1,0 +1,48 @@
+@use "../../scss/abstracts" as *;
+
+.form {
+  @include flex(space-evenly, center);
+
+  @include mq(medium) {
+    justify-content: center;
+  }
+
+  @include mq(large) {
+    grid-column: 3;
+    margin: 0.8rem 4rem 0 0;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__input {
+    padding: 0.6rem 1.5rem;
+    border: transparent;
+    @include border-radius;
+
+    &::placeholder {
+      font-size: 0.7rem;
+    }
+
+    @include mq(medium) {
+      padding: 0.6rem 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__error {
+    font-style: italic;
+    color: red;
+    font-size: 0.7rem;
+    position: absolute;
+    inset: 3.2rem 0 0 0.5rem;
+  }
+
+  &__button {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    @include red-theme-btn;
+    @include border-radius;
+  }
+}
