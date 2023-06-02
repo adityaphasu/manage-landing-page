@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Button from "../Button/Button";
+import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
+import { fadeInX } from "../../utils/animatedVariants";
 import "./Form.scss";
 
 export default function Form() {
@@ -25,7 +26,13 @@ export default function Form() {
   }
 
   return (
-    <form action="#" className="form" onSubmit={handleSubmit} noValidate>
+    <AnimatedComponent
+      tag="form"
+      variants={fadeInX("positive")}
+      action="#"
+      className="form"
+      onSubmit={handleSubmit}
+      noValidate>
       <div className="form__container">
         <label htmlFor="email">
           <input
@@ -47,6 +54,6 @@ export default function Form() {
       <button className="form__button" type="submit">
         Go
       </button>
-    </form>
+    </AnimatedComponent>
   );
 }

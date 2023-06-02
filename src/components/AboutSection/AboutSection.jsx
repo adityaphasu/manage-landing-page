@@ -1,5 +1,7 @@
 import React from "react";
+import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
 import "./AboutSection.scss";
+import { fadeInX, stagger } from "../../utils/animatedVariants";
 
 const features = [
   {
@@ -29,21 +31,29 @@ export default function AboutSection() {
   return (
     <section className="about-section">
       <div className="about-section__container">
-        <h2 className="about-section__heading">What’s different about Manage?</h2>
-        <p>
-          Manage provides all the functionality your team needs, without the complexity. Our software is
-          tailor-made for modern digital product teams.{" "}
-        </p>
+        <AnimatedComponent tag="div" variants={stagger("positive")}>
+          <h2 className="about-section__heading">What’s different about Manage?</h2>
+          <AnimatedComponent tag="p" variants={fadeInX("positive")}>
+            Manage provides all the functionality your team needs, without the complexity. Our software
+            is tailor-made for modern digital product teams.{" "}
+          </AnimatedComponent>
+        </AnimatedComponent>
       </div>
       <div className="about-section__features">
         {features.map((feature) => (
-          <div className="about-section__feature" key={feature.id}>
+          <AnimatedComponent
+            tag="div"
+            variants={stagger("negative")}
+            className="about-section__feature"
+            key={feature.id}>
             <h3 className="about-section__heading2">
               <span>{feature.number}</span>
               {feature.name}
             </h3>
-            <p>{feature.description}</p>
-          </div>
+            <AnimatedComponent tag="p" variants={fadeInX("negative")}>
+              {feature.description}
+            </AnimatedComponent>
+          </AnimatedComponent>
         ))}
       </div>
     </section>

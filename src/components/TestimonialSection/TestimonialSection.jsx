@@ -1,6 +1,8 @@
 import React from "react";
 import Button from "../Button/Button";
 import { Ali, Anisha, Richard, Shanai } from "../../assets/images";
+import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
+import { fadeInY } from "../../utils/animatedVariants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/css";
@@ -41,7 +43,9 @@ const testimonies = [
 export default function TestimonialSection() {
   return (
     <section className="testimonial-section">
-      <h2 className="testimonial-section__heading">What they’ve said</h2>
+      <AnimatedComponent tag="h2" variants={fadeInY} className="testimonial-section__heading">
+        What they’ve said
+      </AnimatedComponent>
       <Swiper
         slidesPerView={1}
         spaceBetween={25}

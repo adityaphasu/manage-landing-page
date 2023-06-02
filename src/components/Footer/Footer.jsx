@@ -3,12 +3,18 @@ import { Logo2 } from "../../assets/images";
 import { Facebook, Instagram, Twitter, Pinterest, Youtube } from "../../assets/icons/icons";
 import Form from "../Form/Form";
 import "./Footer.scss";
+import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
+import { fadeInX, fadeInY } from "../../utils/animatedVariants";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <Form />
-      <nav aria-label="Second Menu" className="footer__navbar">
+      <AnimatedComponent
+        tag="nav"
+        variants={fadeInY}
+        aria-label="Second Menu"
+        className="footer__navbar">
         <ul className="footer__list">
           <li className="footer__item">
             <a href="#" className="footer__link">
@@ -46,8 +52,8 @@ export default function Footer() {
             </a>
           </li>
         </ul>
-      </nav>
-      <div className="footer__socials">
+      </AnimatedComponent>
+      <AnimatedComponent tag="div" variants={fadeInX("negative")} className="footer__socials">
         <a href="#" aria-label="facebook">
           <img src={Facebook} alt="" />
         </a>
@@ -63,11 +69,13 @@ export default function Footer() {
         <a href="#" aria-label="instagram">
           <img src={Instagram} alt="" />
         </a>
-      </div>
-      <a href="#" className="footer__logo">
+      </AnimatedComponent>
+      <AnimatedComponent tag="a" variants={fadeInX("negative")} href="#" className="footer__logo">
         <img src={Logo2} alt="" className="footer__img" aria-label="Manage" />
-      </a>
-      <p className="footer__copyright">Copyright 2020. All Rights Reserved</p>
+      </AnimatedComponent>
+      <AnimatedComponent tag="p" variants={fadeInX("positive")} className="footer__copyright">
+        Copyright 2020. All Rights Reserved
+      </AnimatedComponent>
     </footer>
   );
 }

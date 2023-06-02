@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Logo from "../../assets/logo.svg";
-import Ham from "../../assets/icons/icon-hamburger.svg";
 import Button from "../Button/Button";
+import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
+import { fadeInY } from "../../utils/animatedVariants";
 import "./Header.scss";
 
 export default function Header() {
@@ -13,7 +14,7 @@ export default function Header() {
   return (
     <>
       <div className={`overlay ${isMenuOpen ? "overlay--visible" : ""}`} />
-      <header className="header">
+      <AnimatedComponent tag="header" variants={fadeInY} className="header">
         <nav className="header__navbar" aria-label="menu">
           <a href="#" aria-label="Manage">
             <img src={Logo} alt="Manage" className="header__logo" />
@@ -55,7 +56,7 @@ export default function Header() {
           </ul>
           <Button className="btn btn--hidden" text="Get Started" />
         </nav>
-      </header>
+      </AnimatedComponent>
     </>
   );
 }
