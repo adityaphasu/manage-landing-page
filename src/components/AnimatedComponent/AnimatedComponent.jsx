@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const AnimatedComponent = ({ tag, variants, ...otherProps }) => {
   const MotionTag = motion[tag];
+  const prefersReducedMotion = useReducedMotion();
+
+  const shouldAnimate = prefersReducedMotion ? {} : variants;
 
   return (
     <MotionTag
@@ -9,7 +12,7 @@ const AnimatedComponent = ({ tag, variants, ...otherProps }) => {
       whileInView="visible"
       viewport={{ once: true, threshold: 1 }}
       transition={{ duration: 0.8, delay: 0.25 }}
-      variants={variants}
+      variants={shouldAnimate}
       {...otherProps}></MotionTag>
   );
 };
