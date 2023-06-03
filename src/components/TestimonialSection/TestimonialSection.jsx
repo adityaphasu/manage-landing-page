@@ -69,25 +69,17 @@ export default function TestimonialSection() {
         className="mySwiper">
         {testimonies.map((testimony) => (
           <SwiperSlide key={testimony.id}>
-            <div className="testimonial-section__testimony">
+            <AnimatedComponent tag="div" variants={fadeInY} className="testimonial-section__testimony">
               <img className="testimonial-section__avatar" src={testimony.img} alt="" />
               <h3 className="testimonial-section__name">{testimony.name}</h3>
               <p>{testimony.testimony}</p>
-            </div>
+            </AnimatedComponent>
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* <div className="testimonial-section__testimony">
-        <img className="testimonial-section__avatar" src={Ali} alt="" />
-        <h3 className="testimonial-section__name">Ali Bravo</h3>
-        <p>
-          “We have been able to cancel so many other subscriptions since using Manage. There is no more
-          cross-channel confusion and everyone is much more focused.”
-        </p>
-      </div>
-      <div>hi</div>
-      <div>hi</div> */}
-      <Button className="btn" text="Get Started" />
+      <AnimatedComponent tag="div" variants={fadeInY}>
+        <Button className="btn" text="Get Started" />
+      </AnimatedComponent>
     </section>
   );
 }
