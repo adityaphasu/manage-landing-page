@@ -1,10 +1,29 @@
 import React from "react";
+import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
+import Form from "../Form/Form";
 import { Logo2 } from "../../assets/images";
 import { Facebook, Instagram, Twitter, Pinterest, Youtube } from "../../assets/icons/icons";
-import Form from "../Form/Form";
-import "./Footer.scss";
-import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
 import { fadeInX, fadeInY } from "../../utils/animatedVariants";
+import "./Footer.scss";
+import ListItem from "../ListItem/ListItem";
+
+const socialMediaData = [
+  { label: "facebook", image: Facebook },
+  { label: "youtube", image: Youtube },
+  { label: "twitter", image: Twitter },
+  { label: "pinterest", image: Pinterest },
+  { label: "instagram", image: Instagram },
+];
+
+const footerLinks = [
+  "Home",
+  "Pricing",
+  "Products",
+  "About Us",
+  "Careers",
+  "Community",
+  "Privacy Policy",
+];
 
 export default function Footer() {
   return (
@@ -16,59 +35,17 @@ export default function Footer() {
         aria-label="Second Menu"
         className="footer__navbar">
         <ul className="footer__list">
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Home
-            </a>
-          </li>
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Pricing
-            </a>
-          </li>
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Products
-            </a>
-          </li>
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              About Us
-            </a>
-          </li>
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Careers
-            </a>
-          </li>
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Community
-            </a>
-          </li>
-          <li className="footer__item">
-            <a href="#" className="footer__link">
-              Privacy Policy
-            </a>
-          </li>
+          {footerLinks.map((text, index) => (
+            <ListItem key={index} text={text} className="footer__item" linkClass="footer" />
+          ))}
         </ul>
       </AnimatedComponent>
       <AnimatedComponent tag="div" variants={fadeInX("negative")} className="footer__socials">
-        <a href="#" aria-label="facebook">
-          <img src={Facebook} alt="" />
-        </a>
-        <a href="#" aria-label="youtube">
-          <img src={Youtube} alt="" />
-        </a>
-        <a href="#" aria-label="twitter">
-          <img src={Twitter} alt="" />
-        </a>
-        <a href="#" aria-label="pinterest">
-          <img src={Pinterest} alt="" />
-        </a>
-        <a href="#" aria-label="instagram">
-          <img src={Instagram} alt="" />
-        </a>
+        {socialMediaData.map((socialMedia) => (
+          <a href="#" aria-label={socialMedia.label} key={socialMedia.label}>
+            <img src={socialMedia.image} alt="" />
+          </a>
+        ))}
       </AnimatedComponent>
       <AnimatedComponent tag="a" variants={fadeInX("negative")} href="#" className="footer__logo">
         <img src={Logo2} alt="" className="footer__img" aria-label="Manage" />

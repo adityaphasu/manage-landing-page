@@ -4,12 +4,15 @@ import Button from "../Button/Button";
 import AnimatedComponent from "../AnimatedComponent/AnimatedComponent";
 import { fadeInY } from "../../utils/animatedVariants";
 import "./Header.scss";
+import ListItem from "../ListItem/ListItem";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const headerLinks = ["Pricing", "Product", "About Us", "Careers", "Community"];
 
   return (
     <>
@@ -28,31 +31,9 @@ export default function Header() {
             <span className="header__span"></span>
           </button>
           <ul className={`header__list ${isMenuOpen ? "header__list--open" : ""}`}>
-            <li className="header__item">
-              <a href="#" className="header__link">
-                Pricing
-              </a>
-            </li>
-            <li className="header__item">
-              <a href="#" className="header__link">
-                Product
-              </a>
-            </li>
-            <li className="header__item">
-              <a href="#" className="header__link">
-                About Us
-              </a>
-            </li>
-            <li className="header__item">
-              <a href="#" className="header__link">
-                Careers
-              </a>
-            </li>
-            <li className="header__item">
-              <a href="#" className="header__link">
-                Community
-              </a>
-            </li>
+            {headerLinks.map((text, index) => (
+              <ListItem key={index} text={text} className="header__item" linkClass="header" />
+            ))}
           </ul>
           <Button className="btn btn--hidden" text="Get Started" />
         </nav>
