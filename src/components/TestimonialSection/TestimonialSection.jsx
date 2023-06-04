@@ -50,7 +50,7 @@ export default function TestimonialSection() {
         slidesPerView={1}
         spaceBetween={25}
         autoplay={{
-          delay: 3000,
+          delay: 4500,
           disableOnInteraction: false,
         }}
         rewind={true}
