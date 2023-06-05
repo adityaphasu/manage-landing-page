@@ -48,7 +48,7 @@ export default function Footer() {
         ))}
       </AnimatedComponent>
       <AnimatedComponent tag="a" variants={fadeInX("negative")} href="#" className="footer__logo">
-        <img src={Logo2} alt="" className="footer__img" aria-label="Manage" />
+        <img src={Logo2} alt="" className="footer__img" role="presentation" />
       </AnimatedComponent>
       <AnimatedComponent tag="p" variants={fadeInX("positive")} className="footer__copyright">
         Copyright 2020. All Rights Reserved
